@@ -82,7 +82,7 @@ class Player extends Character{
         System.out.println("New Character Menu");
         System.out.println("Enter a name for your character:");
         setName(scan.nextLine()); // Sets character name from scanner
-        positionSys.randomEdgePosition(Player.this);  // this player at random edge position
+        // positionSys.randomEdgePosition(Player.this);  // this player at random edge position, commented out for time being
         System.out.println("Hunter placed on edge of map\n");
         System.out.println("Hunter Created\n" + "Get ready to hunt in " + w.getMapName() + ", " + this.getName() +".");
 
@@ -95,7 +95,7 @@ class Player extends Character{
             text.compoundDisplay(w,this);
             int entry = scan.nextInt();
             positionSys.boundsCheckerMap(Player.this, entry);
-        }        while (validMapLocation == false);
+        }        while (!validMapLocation);
 
     }
 
