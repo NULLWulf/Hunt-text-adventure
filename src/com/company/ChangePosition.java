@@ -172,12 +172,8 @@ class ChangePosition {
                     w.boss2.setGatheredClues(w.boss2.getGatheredClues() + 1);}
         else
         {w.boss1.setGatheredClues(w.boss1.getGatheredClues() + 1);}
-
+            }
     }
-
-
-
-
 
         public void randomEdgePosition(Player p)  // Takes object p and sets y and x position accordingly
         {

@@ -77,7 +77,6 @@ public class Main {
                     break;
                 }
             } while (entry != 3) ;   // exits application wehn other than 3
-
         }
 }
 
