@@ -155,6 +155,7 @@ class ChangePosition {
 
     }
 
+    // Not utilized too miuch atm, mostly a function to copy and paste from
     public boolean checkIfAtSameLocation(Player p, Character e) {
         if ((p.getPosY() == e.getPosY()) && (p.getPosX() == e.getPosX())) {
             return true;
@@ -163,17 +164,23 @@ class ChangePosition {
         }
     }
 
-    public void  checkForClue(Player p, World w) {
-        if (w.numberBosses == 2)
-            if (w.getClueLocationBool1()[p.getPosY()][p.getPosX()]) {
+
+    public void  checkForClue(Player p, World w) {  /*WIP Method ot determine if clues at one boss are at
+    the same location as clues on another boss*/
+
+        if (w.numberBosses == 2)  // checks to see if 2 boss map
+            if (w.getClueLocationBool1()[p.getPosY()][p.getPosX()])
+            {
                 w.boss1.setGatheredClues(w.boss1.getGatheredClues() + 1);
                 w.setClueLocationBool1()[p.getPosY()][p.getPosX()];
-            if (w.getClueLocationBool2()[p.getPosY()][p.getPosX()]) {
-                    w.boss2.setGatheredClues(w.boss2.getGatheredClues() + 1);}
-        else
-        {w.boss1.setGatheredClues(w.boss1.getGatheredClues() + 1);}
             }
-    }
+            if (w.getClueLocationBool2()[p.getPosY()][p.getPosX()])
+            {
+                w.boss2.setGatheredClues(w.boss2.getGatheredClues() + 1);
+            }
+        else  // if only 1 very simple only need to increment one clue
+        {w.boss1.setGatheredClues(w.boss1.getGatheredClues() + 1);}  // Increments clus found for boss1 by 1
+            }
 
         public void randomEdgePosition(Player p)  // Takes object p and sets y and x position accordingly
         {
