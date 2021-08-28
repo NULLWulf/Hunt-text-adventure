@@ -49,7 +49,7 @@ public class Main {
                             {
                                 hunter.actionMoveCompound(instance);  // calls method to move Hunter between compounds
                             }
-                            while (clueFound == false);  /* when true location of boss is disclosed, this will need
+                            while (hunter.isvalidMapLocation());  /* when true location of boss is disclosed, this will need
                             to thought of in more detail because there can be up to two bosses and if enough clues are
                             found on one that boss can be disclosed without the other. */
                                 hunter.passiveActCluePickup(instance);

@@ -89,15 +89,15 @@ class Player extends Character{
         // passed world name as well as this to referenced player
 
     }
-    public void actionMoveCompound(World w)  // method to move player betwene compounds
+    public void actionMoveCompound(World w)  // method to move player between compounds
     {
-        validMapLocation = false;  // initially false so loop runs atleast once
+        validMapLocation = false;  // initially false so loop runs at least once
         do {
             text.moveMsg();  // shows cardinal move message
             text.compoundDisplay(w,this);  // shows compound you are currently using passed world and this character
             int entry = scan.nextInt();  // prompts for user input
             positionSys.boundsCheckerMap(Player.this, entry);  // function that checks ot make sure move is legal
-        }        while (!validMapLocation);  // if move is legal witll flag true to break the loop otherwise repeats
+        }        while (!validMapLocation);  // if move is legal will flag true to break the loop otherwise repeats
 
     }
 

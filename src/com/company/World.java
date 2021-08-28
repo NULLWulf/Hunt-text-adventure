@@ -20,9 +20,6 @@ class World {
         return clueLocationSeq2;
     }
 
-    void setClueLocationBool1(boolean b){
-        boolean[][] clueLocationBool1 = this.clueLocationBool1;}
-
     public String getMapName() {
         return mapName;
     }
@@ -48,7 +45,7 @@ class World {
         }
     }
     public enum Map{   // Mao Data type
-        BAYOU, LAWSON, DESALLE;
+        BAYOU, LAWSON, DESALLE
     }
     Map map;  // Map object named map
 
@@ -56,9 +53,7 @@ class World {
         DUSK, DAWN, NIGHT, DAY
     }
 
-    Time_of_day timeDay;  // Time of day objecft named timeDay
-
-    TextPrompts textPrompts;
+    Time_of_day timeDay;  // Time of day object named timeDay
 
     String[][] BAYOU = { {"Alain & Son's Fish","Reynard Mill & Lumber","Port Reeker","Scupper Lake"},
             {"Blanchett Graves","Darrow Livestock","Alice Farm", "The Chapel of Madonna Noise"},
@@ -84,7 +79,6 @@ class World {
     private final boolean[][] clueLocationBool2 = new boolean[4][4];  // clues by t/f
     private final int[][] clueLocationSeq2 = new int[4][4];  // clues in sequence of random
 
-    private final boolean[][] bossLocationBool = new boolean[4][4];  // holds t/f location of boss
     int numberBosses;
     int mapKey;
 
@@ -111,7 +105,7 @@ class World {
                 setMapName("DeSalle");
                 mapKey = 2;
                 break;
-        };
+        }
 
         randWorld = TextPrompts.randInt(0,3);  // Scans for random time of day, WIP feature
         switch (randWorld) {
@@ -119,7 +113,7 @@ class World {
             case 1 -> timeDay = Time_of_day.DAWN;
             case 2 -> timeDay = Time_of_day.NIGHT;
             case 3 -> timeDay = Time_of_day.DAY;
-        };
+        }
 
         bossGenerator();  // Generates bosses and number of bosses
 
@@ -147,15 +141,18 @@ class World {
         numberBosses = TextPrompts.randInt(1, 2);//TextPrompts.randInt(1,2);
         System.out.println(numberBosses);
 
-        int boss1TypeKey = 0;  // initializes boss type for 1st boss
-        int boss2TypeKey = 0;  // initializes boss type for 2nd boss
+        int boss1TypeKey;  // initializes boss type for 1st boss
+        int boss2TypeKey;  // initializes boss type for 2nd boss
         System.out.println(numberBosses);
 
         switch (numberBosses){
 
             case 1:
 
-                Arrays.fill(clueLocationBool1, false);  // initializes array with false values will be to true upon pickup
+                for (boolean[] row: clueLocationBool1)  // for loop that fills boolean array with false values l1
+                {
+                    Arrays.fill(row, false);
+                }
 
                 boss1TypeKey = TextPrompts.randInt(1, 4);  // 4 bosses 0-3
                 boss1 = new Boss(boss1TypeKey);  // creates only boss1 object
@@ -164,21 +161,27 @@ class World {
                 break;
             case 2:
 
-                Arrays.fill(clueLocationBool1, false); // initializes array with false values will be to true upon pickup
-                Arrays.fill(clueLocationBool2, false); // initializes array with false values will be to true upon pickup
+                for (boolean[] row: clueLocationBool1)  // for loop that fills boolean array with false values l1
+                {
+                    Arrays.fill(row, false);
+                }
+                for (boolean[] row: clueLocationBool2)  // for loop that fills boolean array with false values l2
+                {
+                    Arrays.fill(row, false);
+                }
 
                 boolean IsduplicateKey = false; // sets duplicate to false by default
                  do {
                     boss1TypeKey = TextPrompts.randInt(1, 4);
-                    ;   // 4 bosses 0-3
+                     // 4 bosses 0-3
                     boss2TypeKey = TextPrompts.randInt(1, 4);
-                    ;   // 4 bosses 0-3
+                     // 4 bosses 0-3
                     if (boss1TypeKey == boss2TypeKey) {  // if random bosses are same key duplicate is true and
                         IsduplicateKey = true;                  // loop repeats until false
                         System.out.println("Duplicate Detected");
                         System.out.println("Duplicate in key");
                     }
-                }   while (IsduplicateKey == true);
+                }   while (IsduplicateKey);
                 boss1 = new Boss(boss1TypeKey);  // creates new boss based on key
                 boss2 = new Boss(boss2TypeKey); // creates new boss based on key
 
@@ -192,12 +195,14 @@ class World {
                         System.out.println("Duplicate Detected");
                         System.out.println("Position Randomizer");
                     }
-                } while (isDuplicatePosition == true);
+                } while (isDuplicatePosition);
                 break;
         }
     }
 
-    public void positionRandomizer(Character p)
+    public void positionRandomizer(Character p)  /*Sets the position on the map where the character is, this will
+    be a function that will be modified for map positions nad the like or a separate function for compound movement
+    etc. */
     {
         int r = TextPrompts.randInt(0,3); // random to find int index in row
         int c = TextPrompts.randInt(0,3);  // random ot find int index in column
@@ -208,16 +213,16 @@ class World {
 
     public void clueSystem(boolean[][] isClueArray, int[][] cluesSequence)
     {
-        int[][] cluesIndex = new int[4][4];  // Array to hold clue location, numbered by pick
+        // Array to hold clue location, numbered by pick
         boolean[][] isClue = new boolean[4][4];  // Array to check if clue is at location
 
-        int rCtr = 0;  // counter to scan through entire row
-        int cCtr = 0;  // counter to scan through entire column
+        int rCtr;  // counter to scan through entire row
+        int cCtr;  // counter to scan through entire column
 
         boolean pClueValidLocation = false;  // clueValid location to default so loop runs once
 
-        int r = 0;  // holds random int through 3 to store clues
-        int c = 0;  // holds random in through 3 to store clues
+        int r;  // holds random int through 3 to store clues
+        int c;  // holds random in through 3 to store clues
 
         for (int clues = 1; clues <= 3; clues++) {  // Loop to find 3 clues and boss
             do{
@@ -227,15 +232,12 @@ class World {
                 // Steps through entire isClue array, true means there is a clue at yhe location
                 for (rCtr = 0; rCtr  <= 3; rCtr++) {
                     for (cCtr = 0; cCtr <= 3; cCtr++) {
-                        if(isClue[cCtr][rCtr] == true){  // if there is a clue at location not a valid place for clue (yet), doubles will be possible in the future
-                            pClueValidLocation = false;
-                        }
-                        else{  // if there is no clue valid location to place
-                            pClueValidLocation = true;
-                        }
+                        // if there is a clue at location not a valid place for clue (yet), doubles will be possible in the future
+                        // if there is no clue valid location to place
+                        pClueValidLocation = !isClue[cCtr][rCtr];
                     }
                 }
-            } while (pClueValidLocation == false);  // valid location indicates it move onto to finding next clue 1, 2, 3
+            } while (!pClueValidLocation);  // valid location indicates it move onto to finding next clue 1, 2, 3
 
             isClueArray[r][c] = true;  // if location is valid sets array state to true
             cluesSequence[r][c] = clues;  // indexes the clue
