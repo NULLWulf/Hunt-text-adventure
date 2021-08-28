@@ -31,6 +31,22 @@ class World {
         this.mapName = mapName;
     }
 
+    public void checkForClue(Player player) {
+        if (this.numberBosses == 2)  // checks to see if 2 boss map
+        {
+            if (this.getClueLocationBool1()[player.getPosY()][player.getPosX()]) {
+                this.clueLocationBool1[player.getPosY()][player.getPosX()] = true;
+            }
+            if (this.getClueLocationBool2()[player.getPosY()][player.getPosX()]) {
+                this.clueLocationBool2[player.getPosY()][player.getPosX()] = true;
+            }
+        } else  // if only 1 very simple only need to increment one clue
+        {
+            if (this.getClueLocationBool1()[player.getPosY()][player.getPosX()]) {
+                this.clueLocationBool1[player.getPosY()][player.getPosX()] = true;
+            }
+        }
+    }
     public enum Map{   // Mao Data type
         BAYOU, LAWSON, DESALLE;
     }
@@ -105,7 +121,6 @@ class World {
             case 3 -> timeDay = Time_of_day.DAY;
         };
 
-
         bossGenerator();  // Generates bosses and number of bosses
 
         switch (numberBosses) {  //Number of bosses indicates number of clue sets
@@ -125,7 +140,6 @@ class World {
                 textPrompts.printArrayContents(clueLocationSeq2);
                 break;
         }
-
     }
 
     public void bossGenerator()
@@ -181,8 +195,8 @@ class World {
                 } while (isDuplicatePosition == true);
                 break;
         }
-
     }
+
     public void positionRandomizer(Character p)
     {
         int r = TextPrompts.randInt(0,3); // random to find int index in row
@@ -229,20 +243,6 @@ class World {
 
     }
     void mapDisplay(int mapKey, Character c)
-    {
-        if (mapKey == 0) {
-            System.out.println(c.getName()+ " is located at " + BAYOU[c.getPosY()][c.getPosX()]);
-        }
-        else if  (mapKey == 1){
-            System.out.println(c.getName()+ " is located at " + LAWSON[c.getPosY()][c.getPosX()]);
-        }
-        else if  (mapKey == 2)
-        {
-            System.out.println(c.getName()+ " is located at " + DESALLE[c.getPosY()][c.getPosX()]);
-        }
-    }
-
-    void compoundAnnounce(World w, Character c)
     {
         if (mapKey == 0) {
             System.out.println(c.getName()+ " is located at " + BAYOU[c.getPosY()][c.getPosX()]);
