@@ -94,7 +94,7 @@ class ChangePosition {
 
     }
 
-    public void boundsCheckerMap(@NotNull Player c, int movIndex) {
+    public void boundsCheckerMap(Player c, int movIndex) {
         int cardinal = movIndex;
         int x = c.getPosX();
         int y = c.getPosY();

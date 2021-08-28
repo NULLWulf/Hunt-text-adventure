@@ -33,14 +33,17 @@ class World {
         {
             if (this.getClueLocationBool1()[player.getPosY()][player.getPosX()]) {
                 this.clueLocationBool1[player.getPosY()][player.getPosX()] = true;
+                player.text.clueFund();
             }
             if (this.getClueLocationBool2()[player.getPosY()][player.getPosX()]) {
                 this.clueLocationBool2[player.getPosY()][player.getPosX()] = true;
+                player.text.clueFund();
             }
         } else  // if only 1 very simple only need to increment one clue
         {
             if (this.getClueLocationBool1()[player.getPosY()][player.getPosX()]) {
                 this.clueLocationBool1[player.getPosY()][player.getPosX()] = true;
+                player.text.clueFund();
             }
         }
     }

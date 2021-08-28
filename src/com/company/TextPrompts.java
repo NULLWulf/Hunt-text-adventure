@@ -55,6 +55,11 @@ class TextPrompts {
         }
     }
 
+    void clueFund()
+    {
+        System.out.println("Clue found at location!");
+    }
+
     void compoundDeclare(String compound)
     {
         System.out.println("You are currently in Lawson Delta at the " + compound + " compound.");
