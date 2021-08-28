@@ -98,7 +98,6 @@ class Player extends Character{
             int entry = scan.nextInt();  // prompts for user input
             positionSys.boundsCheckerMap(Player.this, entry);  // function that checks ot make sure move is legal
         }        while (!validMapLocation);  // if move is legal will flag true to break the loop otherwise repeats
-
     }
 
     public void passiveActCluePickup(World w)  // WIP function check for clue pickup in compound, may need ot go into another class
