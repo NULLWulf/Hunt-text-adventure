@@ -52,7 +52,7 @@ public class Main {
                             while (hunter.isvalidMapLocation());  /* when true location of boss is disclosed, this will need
                             to thought of in more detail because there can be up to two bosses and if enough clues are
                             found on one that boss can be disclosed without the other. */
-                                hunter.passiveActCluePickup(instance);
+                            hunter.passiveActCluePickup(instance);
                         }while (gamestate);  // when false
                     } else {  /* more or less a placeholder now, something more sophisticated will be used when
                         going through the various menus, loop should be continous as a lot of factors have to go in
