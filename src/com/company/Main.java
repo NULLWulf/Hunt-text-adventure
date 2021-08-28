@@ -2,18 +2,16 @@ package com.company;
 import java.util.*;
 import java.io.*;
 
-
-
 public class Main {
 
-
     public static void main(String[] args) {
-
 
         Scanner scan = new Scanner (System.in);
         int entry;  // holds main menu selection entries
 
         TextPrompts textPrompts = new TextPrompts();  // Creates text prompts object
+
+        /*  Code for potential files
         try {
             File myObj = new File("filename.txt");
             if (myObj.createNewFile()) {
@@ -25,7 +23,7 @@ public class Main {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-
+         */
         textPrompts.intro();  // calls into method text
 
         // Do while loop for the bulk of the main menu looping system
@@ -37,54 +35,48 @@ public class Main {
             switch (entry) {
                 case 1:  // Starts main game
                     System.out.println("Start a new game? Enter 1 for Yes, 2 for No");
-                    entry = scan.nextInt();
+                    entry = scan.nextInt(); // Scans input for menu selection
                     if (entry == 1) {
                         System.out.println("Starting game\n");
                         System.out.println("Creating world\n");
-                        World instance = new World();
-                        Player hunter = new Player(instance);
+                        World instance = new World();  // Creates World the game will be played in
+                        Player hunter = new Player(instance);  // Creates character the user will play
                         ChangePosition hunterPosition = new ChangePosition();  // creates ChancePosition object aka navigation system for characters
 
-                        boolean gamestate = true;
-                        boolean clueFound = false;
-                        do {
+                        boolean gamestate = true;  // variable to keep game loop going
+                        boolean clueFound = false;  // initializes clue found variable set to false, if true all clues have been found relative to game state
+                        do {  // main game loop
                             do
                             {
-                                hunter.actionMoveCompound(instance);
+                                hunter.actionMoveCompound(instance);  // calls method to move Hunter between compounds
                             }
-                            while (clueFound == false);
+                            while (clueFound == false);  /* when true location of boss is disclosed, this will need
+                            to thought of in more detail because there can be up to two bosses and if enough clues are
+                            found on one that boss can be disclosed without the other. */
                                 hunter.passiveActCluePickup(instance);
-                        }while (gamestate);
-                        /*
-                        do {
-                            instance.mapDisplay(instance.mapKey, hunter);
-                            hunterPosition.mapMovement(hunter);
-
-                        } while (hunter.isvalidMapLocation());
-                        System.out.println("Returning to main menu");
-                        */
-
-
-                    } else {
-                        // If other number than 1 will return to main menu
+                        }while (gamestate);  // when false
+                    } else {  /* more or less a placeholder now, something more sophisticated will be used when
+                        going through the various menus, loop should be continous as a lot of factors have to go in
+                         to potentially trigger gamestate to false*/
                         System.out.println("Returning to main menu");
                         break;
                     }
                     break;
 
                 case 2:
-                    System.out.println("Resuming game");
+                    System.out.println("Resuming game"); /*This will involve a file system but otherwise will
+                    classes that help recycle code from what will be in the new game functions */
                     break;
 
                 case 3:
-                    System.out.println("Lol had enough?\nBye Bitch!");
+                    System.out.println("Lol had enough?\nBye");  // will close the application
                     break;
 
                 default:
-                    textPrompts.choiceValue1_3();
+                    textPrompts.choiceValue1_3();  // tells must be a choice between 1 and 3
                     break;
                 }
-            } while (entry != 3) ;
+            } while (entry != 3) ;   // exits application wehn other than 3
 
         }
 }
