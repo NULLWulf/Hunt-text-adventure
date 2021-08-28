@@ -164,7 +164,6 @@ class ChangePosition {
         }
     }
 
-
     public void  checkForClue(Player p, World w) {  /*WIP Method ot determine if clues at one boss are at
     the same location as clues on another boss*/
 
@@ -172,7 +171,6 @@ class ChangePosition {
             if (w.getClueLocationBool1()[p.getPosY()][p.getPosX()])
             {
                 w.boss1.setGatheredClues(w.boss1.getGatheredClues() + 1);
-                w.setClueLocationBool1()[p.getPosY()][p.getPosX()];
             }
             if (w.getClueLocationBool2()[p.getPosY()][p.getPosX()])
             {

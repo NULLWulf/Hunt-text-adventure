@@ -41,7 +41,6 @@ public class Main {
                         System.out.println("Creating world\n");
                         World instance = new World();  // Creates World the game will be played in
                         Player hunter = new Player(instance);  // Creates character the user will play
-                        ChangePosition hunterPosition = new ChangePosition();  // creates ChancePosition object aka navigation system for characters
 
                         boolean gamestate = true;  // variable to keep game loop going
                         boolean clueFound = false;  // initializes clue found variable set to false, if true all clues have been found relative to game state
@@ -76,7 +75,7 @@ public class Main {
                     textPrompts.choiceValue1_3();  // tells must be a choice between 1 and 3
                     break;
                 }
-            } while (entry != 3) ;   // exits application wehn other than 3
+            } while (entry != 3) ;   // exits application when other than 3
         }
 }
 

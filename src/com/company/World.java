@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Arrays;
+
 class World {
 
     public boolean[][] getClueLocationBool1() {
@@ -18,7 +20,7 @@ class World {
         return clueLocationSeq2;
     }
 
-    void setClueLocationBool1(boolean[][] b){
+    void setClueLocationBool1(boolean b){
         boolean[][] clueLocationBool1 = this.clueLocationBool1;}
 
     public String getMapName() {
@@ -138,12 +140,19 @@ class World {
         switch (numberBosses){
 
             case 1:
+
+                Arrays.fill(clueLocationBool1, false);  // initializes array with false values will be to true upon pickup
+
                 boss1TypeKey = TextPrompts.randInt(1, 4);  // 4 bosses 0-3
                 boss1 = new Boss(boss1TypeKey);  // creates only boss1 object
                 positionRandomizer(boss1);
 
                 break;
             case 2:
+
+                Arrays.fill(clueLocationBool1, false); // initializes array with false values will be to true upon pickup
+                Arrays.fill(clueLocationBool2, false); // initializes array with false values will be to true upon pickup
+
                 boolean IsduplicateKey = false; // sets duplicate to false by default
                  do {
                     boss1TypeKey = TextPrompts.randInt(1, 4);
@@ -246,21 +255,4 @@ class World {
             System.out.println(c.getName()+ " is located at " + DESALLE[c.getPosY()][c.getPosX()]);
         }
     }
-
-    /*
-    void comoundDisplay (World w, Character c) {
-        if (w.mapKey == 0) {
-            System.out.println("You are currently located at " + BAYOU[c.getPosY()][c.getPosX()]);
-        } else if (w.mapKey == 1) {
-            System.out.println("You are currently located at "  + LAWSON[c.getPosY()][c.getPosX()]);
-        } else if (w.mapKey == 2) {
-            System.out.println("You are currently located at " + DESALLE[c.getPosY()][c.getPosX()]);
-        }
-    }
-
-     */
-}
-
-class Compound extends World{
-
 }
