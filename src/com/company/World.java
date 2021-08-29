@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.Arrays;
-
 class World {
 
     public String getMapName() {
@@ -107,17 +105,17 @@ class World {
 
             case 1:
                 mapDisplay(mapKey, boss1);
-                clueSystem(boss1.clueLocationBool, boss1.clueLocationSeq);
+                boss1.clueSystem();
                 textPrompts.printArrayContents(boss1.clueLocationSeq);
                 break;
             case 2:
                 mapDisplay(mapKey, boss1);
-                clueSystem(boss1.clueLocationBool, boss1.clueLocationSeq);
+                boss1.clueSystem();
                 textPrompts.printArrayContents(boss1.clueLocationSeq);
 
                 mapDisplay(mapKey, boss2);
-                clueSystem(boss2.clueLocationBool, boss2.clueLocationSeq);
-                textPrompts.printArrayContents(boss1.clueLocationSeq);
+                boss2.clueSystem();
+                textPrompts.printArrayContents(boss2.clueLocationSeq);
                 break;
         }
     }
@@ -135,39 +133,24 @@ class World {
 
             case 1:
 
-                for (boolean[] row: this.boss1.clueLocationBool)  // for loop that fills boolean array with false values l1
-                {
-                    Arrays.fill(row, false);
-                }
-
                 boss1TypeKey = TextPrompts.randInt(1, 4);  // 4 bosses 0-3
                 boss1 = new Boss(boss1TypeKey);  // creates only boss1 object
                 positionRandomizer(boss1);
-
                 break;
             case 2:
 
-                for (boolean[] row: this.boss1.clueLocationBool)  // for loop that fills boolean array with false values l1
-                {
-                    Arrays.fill(row, false);
-                }
-                for (boolean[] row: this.boss2.clueLocationBool)  // for loop that fills boolean array with false values l2
-                {
-                    Arrays.fill(row, false);
-                }
-
-                boolean IsduplicateKey = false; // sets duplicate to false by default
+                boolean iSduplicateKey = false; // sets duplicate to false by default
                  do {
                     boss1TypeKey = TextPrompts.randInt(1, 4);
                      // 4 bosses 0-3
                     boss2TypeKey = TextPrompts.randInt(1, 4);
                      // 4 bosses 0-3
                     if (boss1TypeKey == boss2TypeKey) {  // if random bosses are same key duplicate is true and
-                        IsduplicateKey = true;                  // loop repeats until false
+                        iSduplicateKey = true;                  // loop repeats until false
                         System.out.println("Duplicate Detected");
                         System.out.println("Duplicate in key");
                     }
-                }   while (IsduplicateKey);
+                }   while (iSduplicateKey);
                 boss1 = new Boss(boss1TypeKey);  // creates new boss based on key
                 boss2 = new Boss(boss2TypeKey); // creates new boss based on key
 
@@ -197,39 +180,6 @@ class World {
         p.setPosX(c);
     }
 
-    public void clueSystem(boolean[][] isClueArray, int[][] cluesSequence)
-    {
-        // Array to hold clue location, numbered by pick
-        boolean[][] isClue = new boolean[4][4];  // Array to check if clue is at location
-
-        int rCtr;  // counter to scan through entire row
-        int cCtr;  // counter to scan through entire column
-
-        boolean pClueValidLocation = false;  // clueValid location to default so loop runs once
-
-        int r;  // holds random int through 3 to store clues
-        int c;  // holds random in through 3 to store clues
-
-        for (int clues = 1; clues <= 3; clues++) {  // Loop to find 3 clues and boss
-            do{
-                r = TextPrompts.randInt(0,3); // random to find int index iin row
-                c = TextPrompts.randInt(0,3);  // random ot find int index in column
-
-                // Steps through entire isClue array, true means there is a clue at yhe location
-                for (rCtr = 0; rCtr  <= 3; rCtr++) {
-                    for (cCtr = 0; cCtr <= 3; cCtr++) {
-                        // if there is a clue at location not a valid place for clue (yet), doubles will be possible in the future
-                        // if there is no clue valid location to place
-                        pClueValidLocation = !isClue[cCtr][rCtr];
-                    }
-                }
-            } while (!pClueValidLocation);  // valid location indicates it move onto to finding next clue 1, 2, 3
-
-            isClueArray[r][c] = true;  // if location is valid sets array state to true
-            cluesSequence[r][c] = clues;  // indexes the clue
-        }
-
-    }
     void mapDisplay(int mapKey, Character c)
     {
         if (mapKey == 0) {
