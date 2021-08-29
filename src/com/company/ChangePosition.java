@@ -4,13 +4,11 @@ import java.util.*;
 import org.jetbrains.annotations.NotNull;
 import org.w3c.dom.Text;
 
-
 // Meant to serve as main positioning system for game,
 class ChangePosition {
 
     Scanner scan = new Scanner(System.in);
     TextPrompts coord = new TextPrompts();
-
 
     // Calls method and referenced character object 'c' into function as well direct updated coordinates
     public void ChangePos(Character c, int xNew, int yNew)  // takes reffed Character object 'c', and X and Y variable to change position within the Character class
@@ -155,7 +153,7 @@ class ChangePosition {
 
     }
 
-    // Not utilized too miuch atm, mostly a function to copy and paste from
+    // Not utilized too much atm, mostly a function to copy and paste from
     public boolean checkIfAtSameLocation(Player p, Character e) {
         if ((p.getPosY() == e.getPosY()) && (p.getPosX() == e.getPosX())) {
             return true;
@@ -181,11 +179,11 @@ class ChangePosition {
                 r = TextPrompts.randInt(0, 3); // random to find int index in row
                 c = TextPrompts.randInt(0, 3);  // random ot find int index in column
 
-                if (edges[r][c] == true)  // determines if edges is true
+                if (edges[r][c])  // determines if edges is true
                 {
                     validEdge = true; // sets valid edge to true to exit loop
                 }
-            } while (validEdge == false);  // when true will exit roop
+            } while (!validEdge);  // when true will exit roop
 
             p.setPosY(r); //sets character p position directly
             p.setPosX(c);
