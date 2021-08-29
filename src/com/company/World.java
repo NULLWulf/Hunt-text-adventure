@@ -34,17 +34,20 @@ class World {
             if (this.getClueLocationBool1()[player.getPosY()][player.getPosX()]) {
                 this.clueLocationBool1[player.getPosY()][player.getPosX()] = false;
                 player.text.clueFund();
+                boss1.setGatheredClues(+1);
 
             }
             if (this.getClueLocationBool2()[player.getPosY()][player.getPosX()]) {
                 this.clueLocationBool2[player.getPosY()][player.getPosX()] = false;
                 player.text.clueFund();
+                boss2.setGatheredClues(+1);
             }
         } else  // if only 1 very simple only need to increment one clue
         {
             if (this.getClueLocationBool1()[player.getPosY()][player.getPosX()]) {
                 this.clueLocationBool1[player.getPosY()][player.getPosX()] = false;
                 player.text.clueFund();
+                boss1.setGatheredClues(+1);
             }
         }
     }

@@ -6,12 +6,15 @@ public class Boss extends Character {
         static final String[] bossName = {"Spider","Butcher","Assassin","Scrapbeak"};
         private int gatheredClues;
 
+
+
         Boss(int characterKey)
         {
             int key = characterKey;  // holds character key
             key--;  // decrements to match arrays
             setName(bossName[key]);
             setHealth(bossHealthValues[key]);
+            this.gatheredClues = 0;
         }
 
         public int getGatheredClues() {

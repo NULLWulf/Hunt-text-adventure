@@ -101,12 +101,12 @@ class TextPrompts {
     {
         if (w.numberBosses == 2)
         {
-
-
+            System.out.println("You have "  +  w.boss1.getGatheredClues() + " of the 3 " + w.boss1.getName() +
+                    "clues, and " + w.boss2.getGatheredClues() + " of the 3 " + w.boss2.getName() + "clues");
         }
         else
         {
-
+            System.out.println("You have "  +  w.boss1.getGatheredClues() + " of the 3 " + w.boss1.getName() + "clues.");
         }
     }
 

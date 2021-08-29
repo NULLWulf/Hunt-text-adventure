@@ -30,6 +30,7 @@ class Player extends Character{
     public void passiveActCluePickup(World w)  // WIP function check for clue pickup in compound, may need ot go into another class
     {
         w.checkForClue(Player.this);  // calls the check for clue function to check both boss 1 and/or boss 2 clues
+        w.boss1.getGatheredClues();
     }
 
     public boolean isvalidMapLocation() {
