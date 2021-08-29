@@ -33,21 +33,21 @@ class World {
         {
             if (this.getClueLocationBool1()[player.getPosY()][player.getPosX()]) {
                 this.clueLocationBool1[player.getPosY()][player.getPosX()] = false;
-                player.text.clueFund();
-                boss1.setGatheredClues(+1);
+                player.text.clueFund(boss1.getName());
+                boss1.setGatheredClues(boss1.getGatheredClues() + 1);
 
             }
             if (this.getClueLocationBool2()[player.getPosY()][player.getPosX()]) {
                 this.clueLocationBool2[player.getPosY()][player.getPosX()] = false;
-                player.text.clueFund();
-                boss2.setGatheredClues(+1);
+                player.text.clueFund(boss2.getName());
+                boss2.setGatheredClues(boss2.getGatheredClues() + 1);
             }
         } else  // if only 1 very simple only need to increment one clue
         {
             if (this.getClueLocationBool1()[player.getPosY()][player.getPosX()]) {
                 this.clueLocationBool1[player.getPosY()][player.getPosX()] = false;
-                player.text.clueFund();
-                boss1.setGatheredClues(+1);
+                player.text.clueFund(boss1.getName());
+                boss1.setGatheredClues(boss1.getGatheredClues() + 1);
             }
         }
     }
@@ -95,7 +95,8 @@ class World {
     World() {
         TextPrompts textPrompts = new TextPrompts();  // text prompts object
 
-        int randWorld = TextPrompts.randInt(0,2);  // Scans for random map
+        // NOTE!  Sets to 1 so as to only select stillwater or lawson until i populate map names
+        int randWorld = TextPrompts.randInt(0,1);  // Scans for random map
         switch (randWorld) {
             case 0:
                 map = Map.BAYOU;

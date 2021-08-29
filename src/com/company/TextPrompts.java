@@ -1,7 +1,5 @@
 package com.company;
-
 import java.util.Random;
-import java.util.function.Function;
 
 class TextPrompts {
 
@@ -56,7 +54,7 @@ class TextPrompts {
         }
     }
 
-    void clueFund()
+    void clueFund(String boss)
     {
         System.out.println("Clue found at location!");
     }
@@ -101,12 +99,42 @@ class TextPrompts {
     {
         if (w.numberBosses == 2)
         {
-            System.out.println("You have "  +  w.boss1.getGatheredClues() + " of the 3 " + w.boss1.getName() +
-                    "clues, and " + w.boss2.getGatheredClues() + " of the 3 " + w.boss2.getName() + "clues");
+            if((w.boss1.getGatheredClues() != 3) && (w.boss2.getGatheredClues() != 3))
+            {
+                System.out.println("You have "  +  w.boss1.getGatheredClues() + " of the 3 " + w.boss1.getName() +
+                        " clues, and " + w.boss2.getGatheredClues() + " of the 3 " + w.boss2.getName() + " clues");
+            }
+            if((w.boss1.getGatheredClues() == 3) && (w.boss2.getGatheredClues() == 3))
+            {
+                System.out.println("You have found all clues for both bosses.");
+                w.mapDisplay(w.mapKey, w.boss1);
+                w.mapDisplay(w.mapKey, w.boss2);
+            }
+            if((w.boss1.getGatheredClues() == 3) && (w.boss2.getGatheredClues() != 3))
+            {
+                System.out.println("You have "  +  w.boss2.getGatheredClues() + " of the 3 " + w.boss2.getName() + " clues.");
+                System.out.println("You have found all the clues for " + w.boss1.getName() + ".");
+                w.mapDisplay(w.mapKey, w.boss1);
+            }
+            if((w.boss2.getGatheredClues() == 3) && (w.boss1.getGatheredClues() != 3))
+            {
+                System.out.println("You have "  +  w.boss1.getGatheredClues() + " of the 3 " + w.boss1.getName() + " clues.");
+                System.out.println("You have found all the clues for " + w.boss2.getName() + ".");
+                w.mapDisplay(w.mapKey, w.boss2);
+            }
+
         }
         else
         {
-            System.out.println("You have "  +  w.boss1.getGatheredClues() + " of the 3 " + w.boss1.getName() + "clues.");
+            if(w.boss1.getGatheredClues() == 3)
+            {
+                System.out.print("All clues found! ");
+                w.mapDisplay(w.mapKey, w.boss1);
+            }
+            else
+            {
+                System.out.println("You have "  +  w.boss1.getGatheredClues() + " of the 3 " + w.boss1.getName() + " clues.");
+            }
         }
     }
 
