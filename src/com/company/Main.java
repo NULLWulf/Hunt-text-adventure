@@ -53,7 +53,6 @@ public class Main {
                             to thought of in more detail because there can be up to two bosses and if enough clues are
                             found on one that boss can be disclosed without the other. */
 
-
                             /*
                             Currently below is serving as the encounter system
 

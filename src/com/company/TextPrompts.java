@@ -81,6 +81,7 @@ class TextPrompts {
 
     void printArrayContents(int[][] intArrayMap)
     {
+
         System.out.println("");
         for (int rCtr = 0; rCtr  <= 3; rCtr++) {
             System.out.println("| " + intArrayMap[rCtr][0] + " " + intArrayMap[rCtr][1] + " " + intArrayMap[rCtr][2] + " " + intArrayMap[rCtr][3] + " |");
