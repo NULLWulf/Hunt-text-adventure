@@ -4,22 +4,6 @@ import java.util.Arrays;
 
 class World {
 
-    public boolean[][] getClueLocationBool1() {
-        return clueLocationBool1;
-    }
-
-    public int[][] getClueLocationSeq1() {
-        return clueLocationSeq1;
-    }
-
-    public boolean[][] getClueLocationBool2() {
-        return clueLocationBool2;
-    }
-
-    public int[][] getClueLocationSeq2() {
-        return clueLocationSeq2;
-    }
-
     public String getMapName() {
         return mapName;
     }
@@ -31,21 +15,21 @@ class World {
     public void checkForClue(Player player) {
         if (this.numberBosses == 2)  // checks to see if 2 boss map
         {
-            if (this.getClueLocationBool1()[player.getPosY()][player.getPosX()]) {
-                this.clueLocationBool1[player.getPosY()][player.getPosX()] = false;
+            if (this.boss1.clueLocationBool[player.getPosY()][player.getPosX()]) {
+                this.boss1.clueLocationBool[player.getPosY()][player.getPosX()] = false;
                 player.text.clueFund(boss1.getName());
                 boss1.setGatheredClues(boss1.getGatheredClues() + 1);
 
             }
-            if (this.getClueLocationBool2()[player.getPosY()][player.getPosX()]) {
-                this.clueLocationBool2[player.getPosY()][player.getPosX()] = false;
+            if (this.boss2.clueLocationBool[player.getPosY()][player.getPosX()]) {
+                this.boss2.clueLocationBool[player.getPosY()][player.getPosX()] = false;
                 player.text.clueFund(boss2.getName());
                 boss2.setGatheredClues(boss2.getGatheredClues() + 1);
             }
         } else  // if only 1 very simple only need to increment one clue
         {
-            if (this.getClueLocationBool1()[player.getPosY()][player.getPosX()]) {
-                this.clueLocationBool1[player.getPosY()][player.getPosX()] = false;
+            if (this.boss1.clueLocationBool[player.getPosY()][player.getPosX()]) {
+                this.boss1.clueLocationBool[player.getPosY()][player.getPosX()] = false;
                 player.text.clueFund(boss1.getName());
                 boss1.setGatheredClues(boss1.getGatheredClues() + 1);
             }
@@ -79,12 +63,6 @@ class World {
 
     Boss boss1;
     Boss boss2;
-
-    private final boolean[][] clueLocationBool1 = new boolean[4][4];  // clues by t/f
-    private final int[][] clueLocationSeq1 = new int[4][4];  // clues in sequence of random
-
-    private final boolean[][] clueLocationBool2 = new boolean[4][4];  // clues by t/f
-    private final int[][] clueLocationSeq2 = new int[4][4];  // clues in sequence of random
 
     int numberBosses;
     int mapKey;
@@ -129,17 +107,17 @@ class World {
 
             case 1:
                 mapDisplay(mapKey, boss1);
-                clueSystem(clueLocationBool1, clueLocationSeq1);
-                textPrompts.printArrayContents(clueLocationSeq1);
+                clueSystem(boss1.clueLocationBool, boss1.clueLocationSeq);
+                textPrompts.printArrayContents(boss1.clueLocationSeq);
                 break;
             case 2:
                 mapDisplay(mapKey, boss1);
-                clueSystem(clueLocationBool1, clueLocationSeq1);
-                textPrompts.printArrayContents(clueLocationSeq1);
+                clueSystem(boss1.clueLocationBool, boss1.clueLocationSeq);
+                textPrompts.printArrayContents(boss1.clueLocationSeq);
 
                 mapDisplay(mapKey, boss2);
-                clueSystem(clueLocationBool2, clueLocationSeq2);
-                textPrompts.printArrayContents(clueLocationSeq2);
+                clueSystem(boss2.clueLocationBool, boss2.clueLocationSeq);
+                textPrompts.printArrayContents(boss1.clueLocationSeq);
                 break;
         }
     }
@@ -157,7 +135,7 @@ class World {
 
             case 1:
 
-                for (boolean[] row: clueLocationBool1)  // for loop that fills boolean array with false values l1
+                for (boolean[] row: this.boss1.clueLocationBool)  // for loop that fills boolean array with false values l1
                 {
                     Arrays.fill(row, false);
                 }
@@ -169,11 +147,11 @@ class World {
                 break;
             case 2:
 
-                for (boolean[] row: clueLocationBool1)  // for loop that fills boolean array with false values l1
+                for (boolean[] row: this.boss1.clueLocationBool)  // for loop that fills boolean array with false values l1
                 {
                     Arrays.fill(row, false);
                 }
-                for (boolean[] row: clueLocationBool2)  // for loop that fills boolean array with false values l2
+                for (boolean[] row: this.boss2.clueLocationBool)  // for loop that fills boolean array with false values l2
                 {
                     Arrays.fill(row, false);
                 }
