@@ -32,17 +32,18 @@ class World {
         if (this.numberBosses == 2)  // checks to see if 2 boss map
         {
             if (this.getClueLocationBool1()[player.getPosY()][player.getPosX()]) {
-                this.clueLocationBool1[player.getPosY()][player.getPosX()] = true;
+                this.clueLocationBool1[player.getPosY()][player.getPosX()] = false;
                 player.text.clueFund();
+
             }
             if (this.getClueLocationBool2()[player.getPosY()][player.getPosX()]) {
-                this.clueLocationBool2[player.getPosY()][player.getPosX()] = true;
+                this.clueLocationBool2[player.getPosY()][player.getPosX()] = false;
                 player.text.clueFund();
             }
         } else  // if only 1 very simple only need to increment one clue
         {
             if (this.getClueLocationBool1()[player.getPosY()][player.getPosX()]) {
-                this.clueLocationBool1[player.getPosY()][player.getPosX()] = true;
+                this.clueLocationBool1[player.getPosY()][player.getPosX()] = false;
                 player.text.clueFund();
             }
         }

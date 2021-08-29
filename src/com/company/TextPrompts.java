@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.Random;
+import java.util.function.Function;
 
 class TextPrompts {
 
@@ -94,6 +95,19 @@ class TextPrompts {
         int randomNum = rand.nextInt((max - min) + 1) + min;
 
         return randomNum;
+    }
+
+    void prntPostCompoundHunterData(Player p, World w)
+    {
+        if (w.numberBosses == 2)
+        {
+
+
+        }
+        else
+        {
+
+        }
     }
 
 }
