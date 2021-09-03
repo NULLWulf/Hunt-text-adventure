@@ -1,7 +1,6 @@
 package com.company;
 import java.util.*;
 
-import org.jetbrains.annotations.NotNull;
 import org.w3c.dom.Text;
 
 // Meant to serve as main positioning system for game,
@@ -23,7 +22,7 @@ class ChangePosition {
 
     }
 
-    public void mapMovement(@NotNull Character c) {
+    public void mapMovement(Character c) {
         int x = c.getPosX();
         int y = c.getPosY();
 
