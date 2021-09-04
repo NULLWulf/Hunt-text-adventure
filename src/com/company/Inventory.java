@@ -9,7 +9,8 @@ public class Inventory {
 
     public Inventory(Player player){
         this.character = player;
-
+        primary = new PrimaryWeapon();
+        secondary = new SecondaryWeapon();
     }
 
     public Inventory(Character NPC){
