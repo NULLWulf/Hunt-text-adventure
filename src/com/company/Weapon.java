@@ -10,7 +10,6 @@ Range:  0 - melee, 1 - very close (shot guns mostly), 2 - close (compact ammo),
 public class Weapon extends Item {
 
      private ArrayList<Boolean> ammunition;
-
      private String weaponName;
      private int minRange;
      private int maxRange;
@@ -69,4 +68,12 @@ public class Weapon extends Item {
      public void setMeleeWeapon(boolean meleeWeapon) {
           this.meleeWeapon = meleeWeapon;
      }
+}
+
+class PrimaryWeapon extends Weapon{
+
+}
+
+class SecondaryWeapon extends Weapon{
+
 }

@@ -4,6 +4,7 @@ class Player extends Character{
 
     private int weaponInventory;  // inventory based onw eapons sizes
     private boolean validMapLocation = true;
+    Inventory playerInventory;
 
     Player(World w){  // passes world through to get mapname
         weaponInventory = 0;
@@ -14,6 +15,9 @@ class Player extends Character{
         System.out.println("Hunter placed on edge of map\n");
         System.out.println("Hunter Created\n" + "Get ready to hunt in " + w.getMapName() + ", " + this.getName() +".");
         // passed world name as well as this to referenced player
+        playerInventory = new Inventory(this);
+
+
 
     }
     public void actionMoveCompound(World w)  // method to move player between compounds
