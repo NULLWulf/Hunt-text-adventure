@@ -8,7 +8,7 @@ public class PrimaryWeapon extends Weapon{
     static final double[] damage ={65.0,150.00,140.00,120,80.00};
     static final double largeWpnBunt = 40.00;
     static final double[] meleeWeapon ={largeWpnBunt,largeWpnBunt,largeWpnBunt,largeWpnBunt,150.00};
-
+}
      /*
      public PrimaryWeapon() {
 
@@ -24,9 +24,41 @@ public class PrimaryWeapon extends Weapon{
                     System.out.println("Selection #" + temp);
                }
                System.out.println("Choose your weapon, using the Selection # to make your selection");
-               selection = scan.nextInt();
+             selection = scan.nextInt();
                selection--;
           }while(selection < 1 || selection > 5);
      }
-     */
+     */  // display code
+
+class PW_WindalLever extends PrimaryWeapon{
+
+    public PW_WindalLever(){
+
+    }
+}
+
+
+class PW_DamiansDouble extends PrimaryWeapon{
+
+}
+
+class PW_SarahSureShot extends PrimaryWeapon{
+    public PW_SarahSureShot() {
+    }
+}
+
+class PW_BernieBolter extends PrimaryWeapon{
+
+}
+
+class PW_Poker extends PrimaryWeapon{
+
+}
+
+//Class Template
+class Template extends PrimaryWeapon{
+
+    public Template(){
+
+    }
 }
