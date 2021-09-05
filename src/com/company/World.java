@@ -148,7 +148,6 @@ class World {
                     if (boss1TypeKey == boss2TypeKey) {  // if random bosses are same key duplicate is true and
                         iSduplicateKey = true;                  // loop repeats until false
                         System.out.println("Duplicate Detected");
-                        System.out.println("Duplicate in key");
                     }
                 }   while (iSduplicateKey);
                 boss1 = new Boss(boss1TypeKey);  // creates new boss based on key

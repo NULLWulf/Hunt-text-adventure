@@ -1,5 +1,8 @@
 package com.company;
 
+import com.company.Weapons_Package.*;
+
+
 public class Inventory {
 
     Weapon primary;  // declares slot 1 weapon
