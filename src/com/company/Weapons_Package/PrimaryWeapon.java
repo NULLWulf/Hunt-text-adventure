@@ -30,35 +30,3 @@ public class PrimaryWeapon extends Weapon{
      }
      */  // display code
 
-class PW_WindalLever extends PrimaryWeapon{
-
-    public PW_WindalLever(){
-
-    }
-}
-
-
-class PW_DamiansDouble extends PrimaryWeapon{
-
-}
-
-class PW_SarahSureShot extends PrimaryWeapon{
-    public PW_SarahSureShot() {
-    }
-}
-
-class PW_BernieBolter extends PrimaryWeapon{
-
-}
-
-class PW_Poker extends PrimaryWeapon{
-
-}
-
-//Class Template
-class Template extends PrimaryWeapon{
-
-    public Template(){
-
-    }
-}
