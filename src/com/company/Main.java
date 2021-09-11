@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) throws SQLException {
         String uname = "root";
-        String password = "potter";
+        String password = ""; // enter password before runtime!
         String url = "jdbc:mysql://localhost:3306/gamedata";
         String query = "select * from weapondata";
         
