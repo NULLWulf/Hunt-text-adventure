@@ -2,13 +2,45 @@ package com.company;
 import com.company.Weapons_Package.*;
 
 import java.util.*;
-
-
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
+        String uname = "root";
+        String password = "potter";
+        String url = "jdbc:mysql://localhost:3306/gamedata";
+        String query = "select * from weapondata";
+        
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e)
+        {
+            // TODO AUTO-generated catch block
+            e.printStackTrace();
+        }
 
+        try{
+            Connection connection = DriverManager.getConnection(url,uname,password);
+            Statement statement = connection.createStatement();
+            ResultSet result = statement.executeQuery(query);
+
+            while(result.next()){
+                String weapondata = "";
+                for (int i = 1; i <= 6; i++){
+                    weapondata += result.getString(i) + ":";
+                }
+                System.out.println(weapondata);
+            }
+
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
 
         Scanner scan = new Scanner (System.in);
         int entry;  // holds main menu selection entries
