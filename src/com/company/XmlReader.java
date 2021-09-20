@@ -1,3 +1,7 @@
+package com.company;
+
+import com.company.WeaponXmlHandler;
+
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.File;

@@ -21,6 +21,7 @@ import java.io.File;
 public class Main {
 
     public static void main(String[] args) throws SQLException {
+        XmlReader myXmlReader = new XmlReader("weapons.xml");
         String uname = "root";
         String password = "potter"; // enter password before runtime!
         String url = "jdbc:mysql://localhost:3306/gamedata";
@@ -56,20 +57,6 @@ public class Main {
         int entry;  // holds main menu selection entries
 
         TextPrompts textPrompts = new TextPrompts();  // Creates text prompts object
-
-        /*  Code for potential files
-        try {
-            File myObj = new File("filename.txt");
-            if (myObj.createNewFile()) {
-                System.out.println("File created: " + myObj.getName());
-            } else {
-                System.out.println("File already exists.");
-            }
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
-         */
         textPrompts.intro();  // calls into method text
 
         // Do while loop for the bulk of the main menu looping system
