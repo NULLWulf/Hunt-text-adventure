@@ -6,7 +6,7 @@ import java.io.File;
 
 public class XmlReader {
     private final String inputFileName;
-    private XmlHandler myXmlHandler = null;
+    private WeaponXmlHandler myXmlHandler = null;
 
     public XmlReader(String inputFileName) {
         this.inputFileName = inputFileName;
@@ -20,7 +20,7 @@ public class XmlReader {
             SAXParser saxParser = saxParserFactory.newSAXParser();
 
             // Create an XML handler
-            myXmlHandler = new XmlHandler();
+            myXmlHandler = new WeaponXmlHandler();
 
             // Parse the file
             saxParser.parse(inputFile, myXmlHandler);
