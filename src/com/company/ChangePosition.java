@@ -1,8 +1,6 @@
 package com.company;
 import java.util.*;
 
-import org.w3c.dom.Text;
-
 // Meant to serve as main positioning system for game,
 class ChangePosition {
 

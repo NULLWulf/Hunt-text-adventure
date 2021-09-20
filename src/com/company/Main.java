@@ -7,12 +7,22 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+import org.xml.sax.helpers.ParserAdapter;
+
+import java.util.ArrayList;
+import java.util.Objects;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+import java.io.File;
 
 public class Main {
 
     public static void main(String[] args) throws SQLException {
         String uname = "root";
-        String password = ""; // enter password before runtime!
+        String password = "potter"; // enter password before runtime!
         String url = "jdbc:mysql://localhost:3306/gamedata";
         String query = "select * from weapondata";
         
