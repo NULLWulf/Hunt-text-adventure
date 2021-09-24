@@ -1,4 +1,4 @@
-package com.company;
+package Hoont_textdown;
 
 import java.util.Arrays;
 import java.util.Scanner;

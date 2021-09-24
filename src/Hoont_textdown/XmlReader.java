@@ -1,7 +1,5 @@
-package com.company;
-import com.company.Weapons_Package.*;
-
-import com.company.WeaponXmlHandler;
+package Hoont_textdown;
+import Hoont_textdown.Weapons_Package.Weapon;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -11,7 +9,7 @@ import java.io.File;
 
 public class XmlReader {
     private final String inputFileName;
-    private WeaponXmlHandler myXmlHandler = null;
+    private WeaponXmlHandler weaponXmlHandler;
     private Weapon[] weapons;
 
     public XmlReader(String inputFileName) {
@@ -25,11 +23,10 @@ public class XmlReader {
             SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
             SAXParser saxParser = saxParserFactory.newSAXParser();
 
-            // Create an XML handler
-            myXmlHandler = new WeaponXmlHandler();
-
-            // Parse the file
-            saxParser.parse(inputFile, myXmlHandler);
+            if (inputFileName.equals("weapons.xml")){
+                weaponXmlHandler = new WeaponXmlHandler();
+                saxParser.parse(inputFile, weaponXmlHandler);
+            }
 
         } catch (Exception e) {
 
@@ -40,10 +37,8 @@ public class XmlReader {
 
     public Weapon[] getWeapons(){
         // Get the ArrayList of Orders built by the handler and return an array
-        Weapon[] orderArray = new Weapon[myXmlHandler.getWeaponsLibrary().size()];
-        orderArray = myXmlHandler.getWeaponsLibrary().toArray(orderArray);
-        return orderArray;
+        Weapon[] list = new Weapon[weaponXmlHandler.getWeaponsLibrary().size()];
+        list = weaponXmlHandler.getWeaponsLibrary().toArray(list);
+        return list;
     }
-
-
 }

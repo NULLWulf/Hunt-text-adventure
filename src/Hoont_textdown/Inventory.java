@@ -1,6 +1,6 @@
-package com.company;
+package Hoont_textdown;
 
-import com.company.Weapons_Package.*;
+import Hoont_textdown.Weapons_Package.Weapon;
 
 public class Inventory {
 

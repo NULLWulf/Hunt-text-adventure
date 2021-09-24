@@ -1,5 +1,5 @@
-package com.company;
-import com.company.Weapons_Package.*;
+package Hoont_textdown;
+import Hoont_textdown.Weapons_Package.Weapon;
 
 import java.util.*;
 
@@ -9,11 +9,10 @@ public class Main {
 
         XmlReader reader = new XmlReader("weapons.xml");
 
-        /*  TEST Code for XML handler
         for (Weapon w: reader.getWeapons()) {
             System.out.println(w.getWeaponName());
         }
-        */
+
         Scanner scan = new Scanner (System.in);
         int entry;  // holds main menu selection entries
 

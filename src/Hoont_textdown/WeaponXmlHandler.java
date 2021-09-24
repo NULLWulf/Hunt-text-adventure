@@ -1,5 +1,5 @@
-package com.company;
-import com.company.Weapons_Package.*;
+package Hoont_textdown;
+import Hoont_textdown.Weapons_Package.Weapon;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
