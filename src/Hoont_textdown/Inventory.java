@@ -1,6 +1,6 @@
 package Hoont_textdown;
 
-import Hoont_textdown.Weapons_Package.Weapon;
+import Hoont_textdown.Items.Weapon;
 
 public class Inventory {
 

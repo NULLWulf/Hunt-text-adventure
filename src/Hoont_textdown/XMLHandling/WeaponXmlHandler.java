@@ -1,5 +1,5 @@
-package Hoont_textdown;
-import Hoont_textdown.Weapons_Package.Weapon;
+package Hoont_textdown.XMLHandling;
+import Hoont_textdown.Items.Weapon;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -44,7 +44,6 @@ public class WeaponXmlHandler extends DefaultHandler {
     public ArrayList<Weapon> getWeaponsLibrary(){
         return weaponsLibrary;
     }
-
 
 }
 

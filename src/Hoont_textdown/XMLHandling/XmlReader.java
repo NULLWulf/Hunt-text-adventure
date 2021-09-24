@@ -1,5 +1,5 @@
-package Hoont_textdown;
-import Hoont_textdown.Weapons_Package.Weapon;
+package Hoont_textdown.XMLHandling;
+import Hoont_textdown.Items.Weapon;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;

@@ -1,4 +1,4 @@
-package Hoont_textdown.Weapons_Package;
+package Hoont_textdown.Items;
 
 import java.util.*;
 
