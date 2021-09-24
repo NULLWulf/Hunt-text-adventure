@@ -1,5 +1,8 @@
 # Default ignored files
+# file: ~/.gitignore_global
+.DS_Store
+.idea
 /shelf/
 /workspace.xml
 /.idea
-.idea
+out/
