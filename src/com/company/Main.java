@@ -21,36 +21,10 @@ import java.io.File;
 public class Main {
 
     public static void main(String[] args) throws SQLException {
-        XmlReader myXmlReader = new XmlReader("weapons.xml");
-        String uname = "root";
-        String password = "potter"; // enter password before runtime!
-        String url = "jdbc:mysql://localhost:3306/gamedata";
-        String query = "select * from weapondata";
-        
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException e)
-        {
-            // TODO AUTO-generated catch block
-            e.printStackTrace();
-        }
+        XmlReader reader = new XmlReader("weapons.xml");
 
-        try{
-            Connection connection = DriverManager.getConnection(url,uname,password);
-            Statement statement = connection.createStatement();
-            ResultSet result = statement.executeQuery(query);
-
-            while(result.next()){
-                String weapondata = "";
-                for (int i = 1; i <= 6; i++){
-                    weapondata += result.getString(i) + ":";
-                }
-                System.out.println(weapondata);
-            }
-
-        }
-        catch (SQLException e){
-            e.printStackTrace();
+        for (Weapon w: reader.getWeapons()) {
+            System.out.println(w.getWeaponName());
         }
 
         Scanner scan = new Scanner (System.in);

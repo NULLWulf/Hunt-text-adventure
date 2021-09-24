@@ -1,4 +1,5 @@
 package com.company;
+import com.company.Weapons_Package.*;
 
 import com.company.WeaponXmlHandler;
 
@@ -11,6 +12,7 @@ import java.io.File;
 public class XmlReader {
     private final String inputFileName;
     private WeaponXmlHandler myXmlHandler = null;
+    private Weapon[] weapons;
 
     public XmlReader(String inputFileName) {
         this.inputFileName = inputFileName;
@@ -34,6 +36,13 @@ public class XmlReader {
             System.out.println("Exception: " + e.getMessage());
 
         }
+    }
+
+    public Weapon[] getWeapons(){
+        // Get the ArrayList of Orders built by the handler and return an array
+        Weapon[] orderArray = new Weapon[myXmlHandler.getWeaponsLibrary().size()];
+        orderArray = myXmlHandler.getWeaponsLibrary().toArray(orderArray);
+        return orderArray;
     }
 
 

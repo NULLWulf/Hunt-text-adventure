@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <weapons>
-
-
-
-
-
+    <weapon name="Shotgun" type="shotgun">
+        <baseData minRange="1" maxRange="1" ammoCapacity="1"/>
+        <damageValues baseDamage="100" rangeMultiplier="1"/>
+        <trivialData ammoType="Shells" fireMode="Break Action"/>
+    </weapon>
 </weapons>
