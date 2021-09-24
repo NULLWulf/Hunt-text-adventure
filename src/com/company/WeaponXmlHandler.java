@@ -4,11 +4,7 @@ import com.company.Weapons_Package.*;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
-import org.xml.sax.helpers.ParserAdapter;
-import com.company.Weapons_Package.*;
-
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class WeaponXmlHandler extends DefaultHandler {
 

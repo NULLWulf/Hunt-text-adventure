@@ -158,7 +158,6 @@ class ChangePosition {
             return false;
         }
     }
-
         public void randomEdgePosition(Player p)  // Takes object p and sets y and x position accordingly
         {
             boolean validEdge = false;  // set valid edge to false by default

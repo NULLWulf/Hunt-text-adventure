@@ -13,38 +13,30 @@ class Character {
     private int posX;  // Map Grid Position System, in this instance columns
     private int posY;  // Map grid position system, in this instance rows
     private double health;  // health value varies based on extended class
-
     private boolean validCompoundGrid = true;
 
     public void setName(String s) {
         name = s;
     }
-
     String getName()
     {
         return name;
     }
-
     public void setPosX(int x) {
         posX = x;
     }  // Map Grid Position System, in this instance columns
-
     public void setPosY(int y) {
         posY = y;
     }  // Map grid position system, in this instance rows
-
     int getPosX() {
         return posX;
     }  // Map Grid Position System, in this instance columns
-
     int getPosY() {
         return posY;
     }  // Map grid position system, in this instance rows
-
     public double getHealth() {
         return health;
     }  // returns character health
-
     public void setHealth(double health) {
         this.health = health;
     }  // sets health
@@ -67,8 +59,6 @@ class Player extends Character{
         System.out.println("Hunter Created\n" + "Get ready to hunt in " + w.getMapName() + ", " + this.getName() +".");
         // passed world name as well as this to referenced player
         playerInventory = new Inventory(this);
-
-
 
     }
     public void actionMoveCompound(World w)  // method to move player between compounds
@@ -95,7 +85,6 @@ class Player extends Character{
     public void setvalidMapLocation(boolean validLocation) {
         this.validMapLocation = validLocation;
     }
-
 
 }
 

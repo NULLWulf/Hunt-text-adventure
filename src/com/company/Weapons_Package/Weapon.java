@@ -4,7 +4,6 @@ import java.util.*;
 
 public class Weapon{
 
-     Scanner scan = new Scanner (System.in);
      private ArrayList<Boolean> ammunition;
      private String weaponName;
      private String weaponType;
@@ -17,10 +16,6 @@ public class Weapon{
      private double damage;
      private boolean meleeWeapon;
      private double rangeMultiplier;
-
-     public Weapon(){
-
-     }
 
      public Weapon(String weaponName, String weaponType){
           this.weaponName = weaponName;

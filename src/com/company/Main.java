@@ -2,31 +2,18 @@ package com.company;
 import com.company.Weapons_Package.*;
 
 import java.util.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
-import org.xml.sax.helpers.ParserAdapter;
-
-import java.util.ArrayList;
-import java.util.Objects;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-import java.io.File;
 
 public class Main {
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args)  {
+
         XmlReader reader = new XmlReader("weapons.xml");
 
+        /*  TEST Code for XML handler
         for (Weapon w: reader.getWeapons()) {
             System.out.println(w.getWeaponName());
         }
-
+        */
         Scanner scan = new Scanner (System.in);
         int entry;  // holds main menu selection entries
 
