@@ -46,11 +46,8 @@ public class Main {
                             while (!hunter.isvalidMapLocation());  /* when true location of boss is disclosed, this will need
                             to thought of in more detail because there can be up to two bosses and if enough clues are
                             found on one that boss can be disclosed without the other. */
-
                             /*
                             Currently below is serving as the encounter system
-
-
                              */
                             hunter.passiveActCluePickup(instance);
                             textPrompts.prntPostCompoundHunterData(hunter, instance);
