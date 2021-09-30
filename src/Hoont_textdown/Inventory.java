@@ -11,6 +11,7 @@ public class Inventory {
     public Inventory(Player player){
         this.character = player;
 
+        String hi = "hi";
     }
 
     public Inventory(Character NPC){
