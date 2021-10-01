@@ -8,6 +8,7 @@ public class Main {
 
     public static void main(String[] args)  {
 
+        int x = 0;
         XmlReader reader = new XmlReader("weapons.xml");
 
         for (Weapon w: reader.getWeapons()) {
